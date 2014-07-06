@@ -9,4 +9,4 @@ $server->get('/hello/[name]:any', function ($request, $response, $args) {
 });
 
 $runner = new CapMousse\ReactRestify\Runner($server);
-$runner->listen("1337", "37.59.123.121");
+$runner->listen("1338", "127.0.0.1");
