@@ -1,5 +1,5 @@
 {
-    "name"          : "capmousse/react-restify",
+    "name"          : "michelwilhelm/react-restify",
     "description"   : "Create RESTful API with ReactPHP",
     "keywords"      : [ "react", "rest", "restify" ],
     "license"       : "MIT",
@@ -9,6 +9,12 @@
             "email"     : "contact@jeremybarbe.fr",
             "homepage"  : "http://www.shwaark.com",
             "role"      : "developer"
+        },{
+            "name"      : "Michel Wilhelm",
+            "email"     : "michelwilhelm@gmail.com",
+            "homepage"  : "http://michelw.in",
+            "role"      : "developer"
+        },{
         }
     ],
     "require"       : {
@@ -16,7 +22,7 @@
     },
     "autoload"      : {
         "psr-4": {
-            "CapMousse\\ReactRestify\\"       : "src"
+            "MichelW\\ReactRestify\\"       : "src"
         }
     }
 }
