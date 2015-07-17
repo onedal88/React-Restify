@@ -9,6 +9,7 @@ class Request extends EventEmitter
 {
     public $httpRequest;
     private $data = [];
+    private $rowBodyData = [];
 
     public function __construct(ReactHttpRequest $httpRequest)
     {
@@ -20,7 +21,7 @@ class Request extends EventEmitter
      * @param array $data array of data
      */
     public function setData($data)
-    {
+    {   
         $this->data = array_merge($data, $this->data);
     }
 
@@ -33,9 +34,19 @@ class Request extends EventEmitter
         return $this->data;
     }
 
+    public function setRowBodyData(array $data)
+    {
+        $this->rowBodyData = array_merge($data, $this->rowBodyData);
+    }
+
+    public function getRowBodyData() 
+    {
+        return $this->rowBodyData;
+    }
+
     public function __get($name)
     {
-        return isset($this->data[$name]) ? $this->data[$name] : false;
+        return isset($this->data[$name]) ? $this->data[$name] : (isset($this->rowBodyData[$name]) ? $this->rowBodyData[$name] : false);
     }
 
     public function __set($name, $value)

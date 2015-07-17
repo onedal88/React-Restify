@@ -144,6 +144,8 @@ class Route extends EventEmitter
             $request->httpRequest->on('end', function() use ($request, $response, $next, &$dataResult) {
                 if ($dataResult !== null) {
                     parse_str($dataResult, $data);
+                    $rowData = (array) json_decode($dataResult);
+                    $request->setRowBodyData($rowData);
                     $request->setData($data);
                 }
 
