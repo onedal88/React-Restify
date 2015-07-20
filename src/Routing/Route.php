@@ -33,10 +33,18 @@ class Route extends EventEmitter
     private $uri;
 
     /**
+     * Method mapped for class
+     * @var boolean
+     */
+    private $anyMethod = false;
+
+    /**
      * Route filters
      * @var array
      */
     private $filters = array();
+
+    const ANY_METHOD = "ANY";
 
     /**
      * @param String   $method
@@ -117,13 +125,28 @@ class Route extends EventEmitter
      * @return Void
      */
     public function run(Request $request, Response $response, $next)
-    {
-        if (is_string($this->action)) {
-            $this->action = explode(':', $this->action);
-            $this->action[0] = new $action[0]();
+    {   
+        if ($this->method === self::ANY_METHOD ){
+            $this->anyMethod = true;
+
+            if(is_array($this->action))
+                $this->action[1] = strtolower($request->httpRequest->getMethod());
         }
 
-        if (in_array($this->method, array('PUT', 'POST'))) {
+        if (is_string($this->action)) {
+            if ($this->anyMethod) {
+                $instance = new $this->action();
+
+                $this->action = [];
+                $this->action[0] = $instance;
+                $this->action[1] = strtolower($request->httpRequest->getMethod());
+            } else {
+                $this->action = explode(':', $this->action);
+                $this->action[0] = new $action[0]();
+            }
+        }
+
+        if (in_array($this->method, array('PUT', 'POST')) || ($this->anyMethod && in_array($request->httpRequest->getMethod(), ['PUT', 'POST'])) )  {
             $dataResult = "";
             $headers = $request->httpRequest->getHeaders();
 

@@ -128,7 +128,7 @@ class Router extends EventEmitter
             }
 
             if (preg_match('#'.$route->parsed.'$#', $request->httpRequest->getPath(), $array)) {
-                if ($route->method != strtoupper($request->httpRequest->getMethod())) {
+                if ($route->method != strtoupper($request->httpRequest->getMethod()) && $route->method != Route::ANY_METHOD ) {
                     $badMethod = true;
                     continue;
                 }
