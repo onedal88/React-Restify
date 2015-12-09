@@ -10,21 +10,33 @@ class Runner
 {
     private $app;
 
+    private static $loop;
+
     public function __construct($app)
     {
         $this->app = $app;
     }
 
+    public static function getLoop() 
+    {
+        return self::$loop;
+    }
+
     public function listen($port, $host = '127.0.0.1')
     {
-        $loop = Factory::create();
-        $socket = new SocketServer($loop);
+        self::$loop = Factory::create();
+        $socket = new SocketServer(self::$loop);
         $http = new HttpServer($socket);
 
+        $queue = \GuzzleHttp\Promise\queue();
+        $queue->run();
+        
+        self::$loop->addPeriodicTimer(0, [$queue, 'run']);
+        
         $http->on('request', $this->app);
         echo("Server running on {$host}:{$port}\n");
 
         $socket->listen($port, $host);
-        $loop->run();
+        self::$loop->run();
     }
 }
