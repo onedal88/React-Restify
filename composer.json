@@ -16,7 +16,7 @@
             }
         ],
         "require"       : {
-            "react/http":  "0.4.*",
+            "react/http":  "dev-master",
             "guzzlehttp/promises": "^1.0"
         },
         "autoload"      : {

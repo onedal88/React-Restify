@@ -153,14 +153,7 @@ class Route extends EventEmitter
             //Get data chunck by chunk
             $request->httpRequest->on('data', function($data) use ($headers, $request, &$dataResult) {
                 $dataResult .= $data;
-
-                if (isset($headers["Content-Length"])) {
-                    if (strlen($dataResult) == $headers["Content-Length"]) {
-                        $request->httpRequest->close();
-                    }
-                } else {
-                    $request->httpRequest->close();
-                }
+                $request->httpRequest->close();
             });
 
             //Wait request end to launch route

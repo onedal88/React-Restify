@@ -64,7 +64,6 @@ class Server
         try {
             $this->router->launch($request, $response, function() use ($request, $response, $start) {
                 $end = microtime(true) - $start;
-
                 $response->addHeader("X-Response-Time", $end);
                 $response->addHeader("Date", date(DATE_RFC822));
                 $response->addHeader("Access-Control-Request-Method", "POST, GET, PUT, DEL");

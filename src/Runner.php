@@ -6,6 +6,7 @@ use React\EventLoop\Factory;
 use React\Socket\Server as SocketServer;
 use React\Http\Server as HttpServer;
 use CapMousse\ReactRestify\Async\Interval;
+use Ratchet\Server\IoServer;
 
 class Runner
 {
@@ -37,7 +38,6 @@ class Runner
         //Add Intervals
         $intervals = Interval::getIntervals();
         if($intervals instanceof \ArrayIterator) {
-
             foreach ($intervals as $interval) 
                 self::$loop->addPeriodicTimer($interval->getTime(), $interval->getCallback());
         }
@@ -46,6 +46,7 @@ class Runner
         echo("Server running on {$host}:{$port}\n");
 
         $socket->listen($port, $host);
+
         self::$loop->run();
     }
 }
