@@ -11,3 +11,5 @@ $server->get('/hello/{name}', function ($request, $response, $next) {
 
 $runner = new CapMousse\ReactRestify\Runner($server);
 $runner->listen("1337");
+
+echo "aqui";

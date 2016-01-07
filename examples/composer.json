@@ -1,0 +1,27 @@
+{
+	"name"          : "brenodouglas/product-api",
+    "description"   : "Create RESTful API with ReactPHP",
+    "keywords"      : [ "react", "rest", "restify" ],
+    "license"       : "MIT",
+    "authors"       : [
+        {
+            "name"      : "Breno Douglas",
+            "email"     : "bdouglasans@gmail.com",
+            "role"      : "developer"
+        }
+    ],
+    "require": {
+        "capmousse/react-restify": "dev-master"
+    },
+    "repositories": [
+        {
+            "type": "git",
+            "url":  "https://github.com/brenodouglas/React-Restify.git"
+        }
+    ],
+    "autoload"      : {
+        "psr-4": {
+            "App\\"  : "src"
+        }
+    }
+}
