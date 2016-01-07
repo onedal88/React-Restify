@@ -5,6 +5,7 @@ namespace CapMousse\ReactRestify;
 use React\EventLoop\Factory;
 use React\Socket\Server as SocketServer;
 use React\Http\Server as HttpServer;
+use CapMousse\ReactRestify\Async\Interval;
 
 class Runner
 {
@@ -32,6 +33,14 @@ class Runner
         $queue->run();
         
         self::$loop->addPeriodicTimer(0, [$queue, 'run']);
+        
+        //Add Intervals
+        $intervals = Interval::getIntervals();
+        if($intervals instanceof \ArrayIterator) {
+
+            foreach ($intervals as $interval) 
+                self::$loop->addPeriodicTimer($interval->getTime(), $interval->getCallback());
+        }
         
         $http->on('request', $this->app);
         echo("Server running on {$host}:{$port}\n");
