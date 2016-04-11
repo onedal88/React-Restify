@@ -1,5 +1,5 @@
     {
-        "name"          : "brenodouglas/react-restify",
+        "name"          : "onedal/react-restify",
         "description"   : "Create RESTful API with ReactPHP",
         "keywords"      : [ "react", "rest", "restify" ],
         "license"       : "MIT",
