@@ -1,9 +1,9 @@
 <?php
 require_once __DIR__.'/../vendor/autoload.php';
 
-use CapMousse\ReactRestify\Server;
-use CapMousse\ReactRestify\Runner;
-use CapMousse\ReactRestify\Async\{Interval, Timeout};
+use oNeDaL\ReactRestifyServer;
+use oNeDaL\ReactRestifyRunner;
+use oNeDaL\ReactRestifyAsync\{Interval, Timeout};
 
 require_once __DIR__."/src/Controllers/ProductController.php";
 
@@ -16,7 +16,7 @@ Interval::run(function(){
 
 $server->any('/products', 'App\Controllers\ProductController')->where('id', '[0-9]?');
 $server->on('NotFound', function($request, $response, $next){
-	
+
 	(new Timeout())->run(function(){
 		echo "hello";
 	}, 4);
