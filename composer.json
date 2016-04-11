@@ -21,7 +21,7 @@
         },
         "autoload"      : {
             "psr-4": {
-                "CapMousse\\ReactRestify\\"       : "src"
+                "oNeDaL\\ReactRestify\\"       : "src"
             }
         },
         "extra": {
