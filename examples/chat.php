@@ -1,7 +1,8 @@
-<?php
+<?phpresult
 require_once __DIR__.'/../vendor/autoload.php';
 
-use oNeDaL\ReactRestify\{Server, Runner};
+use oNeDaL\ReactRestify\Server;
+use oNeDaL\ReactRestify\Runner;
 use oNeDaL\ReactRestify\Async\Timeout;
 use oNeDaL\ReactRestify\Promise\AsyncPromise;
 

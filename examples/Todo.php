@@ -22,8 +22,7 @@ $server->post('/', function ($request, $response, $next) use (&$todoList) {
     }
 
     $todoList[] = ["name" => $request->name, "value" => "waiting"];
-    $id = count($todoList)-1;
-
+    $id = count($todoList);
     $response->writeJson((object)array("id" => $id));
     $next();
 })->after(function($request, $response, $route) use (&$todoList){
