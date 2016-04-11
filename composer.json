@@ -1,4 +1,4 @@
-    {
+{
         "name"          : "onedal/react-restify",
         "description"   : "Create RESTful API with ReactPHP",
         "keywords"      : [ "react", "rest", "restify" ],
@@ -20,8 +20,8 @@
             }
         ],
         "require"       : {
-            "react/http":  "0.5.x-dev",
-            "guzzlehttp/promises": "^1.0"
+            "guzzlehttp/promises": "^1.0",
+                "react/http": "^0.4.1"
         },
         "autoload"      : {
             "psr-4": {
