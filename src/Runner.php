@@ -1,11 +1,11 @@
 <?php
 
-namespace CapMousse\ReactRestify;
+namespace oNeDaL\ReactRestify;
 
 use React\EventLoop\Factory;
 use React\Socket\Server as SocketServer;
 use React\Http\Server as HttpServer;
-use CapMousse\ReactRestify\Async\Interval;
+use oNeDaL\ReactRestify\Async\Interval;
 use Ratchet\Server\IoServer;
 
 class Runner
@@ -19,7 +19,7 @@ class Runner
         $this->app = $app;
     }
 
-    public static function getLoop() 
+    public static function getLoop()
     {
         return self::$loop;
     }
@@ -32,16 +32,16 @@ class Runner
 
         $queue = \GuzzleHttp\Promise\queue();
         $queue->run();
-        
+
         self::$loop->addPeriodicTimer(0, [$queue, 'run']);
-        
+
         //Add Intervals
         $intervals = Interval::getIntervals();
         if($intervals instanceof \ArrayIterator) {
-            foreach ($intervals as $interval) 
+            foreach ($intervals as $interval)
                 self::$loop->addPeriodicTimer($interval->getTime(), $interval->getCallback());
         }
-        
+
         $http->on('request', $this->app);
         echo("Server running on {$host}:{$port}\n");
 

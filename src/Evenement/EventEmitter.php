@@ -1,6 +1,6 @@
 <?php
 
-namespace CapMousse\ReactRestify\Evenement;
+namespace oNeDaL\ReactRestify\Evenement;
 
 class EventEmitter extends \Evenement\EventEmitter
 {

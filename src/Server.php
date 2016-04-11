@@ -1,6 +1,6 @@
 <?php
 
-namespace CapMousse\ReactRestify;
+namespace oNeDaL\ReactRestify;
 
 use React\Http\Request as HttpRequest;
 use React\Http\Response as HttpResponse;
@@ -83,7 +83,7 @@ class Server
      * @param String   $prefix   prefix of the routes
      * @param Callable $callback
      *
-     * @return \CapMousse\ReactRestify\Routing\Routes
+     * @return \oNeDaL\ReactRestify\Routing\Routes
      */
     public function group($prefix, $callback)
     {

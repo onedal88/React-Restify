@@ -1,10 +1,10 @@
 <?php
 
-namespace CapMousse\ReactRestify\Routing;
+namespace oNeDaL\ReactRestify\Routing;
 
-use CapMousse\ReactRestify\Evenement\EventEmitter;
-use CapMousse\ReactRestify\Http\Request;
-use CapMousse\ReactRestify\Http\Response;
+use oNeDaL\ReactRestify\Evenement\EventEmitter;
+use oNeDaL\ReactRestify\Http\Request;
+use oNeDaL\ReactRestify\Http\Response;
 
 class Router extends EventEmitter
 {
@@ -75,7 +75,7 @@ class Router extends EventEmitter
      *
      * @param String $prefix prefix of thes routes
      *
-     * @return \CapMousse\ReactRestify\Routing\Group
+     * @return \oNeDaL\ReactRestify\Routing\Group
      */
     public function addGroup($prefix, $callback)
     {

@@ -1,9 +1,9 @@
 <?php
 require_once __DIR__.'/../vendor/autoload.php';
 
-use CapMousse\ReactRestify\{Server, Runner};
-use CapMousse\ReactRestify\Async\Timeout;
-use CapMousse\ReactRestify\Promise\AsyncPromise;
+use oNeDaL\ReactRestify\{Server, Runner};
+use oNeDaL\ReactRestify\Async\Timeout;
+use oNeDaL\ReactRestify\Promise\AsyncPromise;
 
 $server = new Server("ReactAPI", "0.0.0.1");
 $server->post('/', function($req, $res, $next){

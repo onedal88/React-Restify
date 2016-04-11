@@ -1,7 +1,7 @@
-<?php 
-namespace CapMousse\ReactRestify\Async;
+<?php
+namespace oNeDaL\ReactRestify\Async;
 
-class Interval 
+class Interval
 {
 	private static $intervalCollection;
 
@@ -15,7 +15,7 @@ class Interval
 	}
 
 	public static function run(callable $callback, $time = 1)
-	{	
+	{
 		if (! self::$intervalCollection)
 			self::$intervalCollection = new \ArrayIterator();
 

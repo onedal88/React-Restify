@@ -1,6 +1,6 @@
 <?php
 
-namespace CapMousse\ReactRestify\Http;
+namespace oNeDaL\ReactRestify\Http;
 
 use React\Http\Request as ReactHttpRequest;
 use Evenement\EventEmitter;
@@ -21,7 +21,7 @@ class Request extends EventEmitter
      * @param array $data array of data
      */
     public function setData($data)
-    {   
+    {
         $this->data = array_merge($data, $this->data);
     }
 
@@ -39,7 +39,7 @@ class Request extends EventEmitter
         $this->rowBodyData = array_merge($data, $this->rowBodyData);
     }
 
-    public function getRowBodyData() 
+    public function getRowBodyData()
     {
         return $this->rowBodyData;
     }

@@ -1,14 +1,14 @@
 <?php
 
-namespace CapMousse\ReactRestify\Routing;
+namespace oNeDaL\ReactRestify\Routing;
 
-use CapMousse\ReactRestify\Evenement\EventEmitter;
+use oNeDaL\ReactRestify\Evenement\EventEmitter;
 
 class Routes extends EventEmitter
 {
     /**
      * Router instance
-     * @var \CapMousse\ReactRestify\Routing\Router
+     * @var \oNeDaL\ReactRestify\Routing\Router
      */
     private $router;
 
@@ -27,7 +27,7 @@ class Routes extends EventEmitter
     /**
      * Create a new group
      *
-     * @param \CapMousse\ReactRestify\Routing\Router $router
+     * @param \oNeDaL\ReactRestify\Routing\Router $router
      * @param String                                 $prefix
      * @param Callable                               $callback
      */
@@ -63,7 +63,7 @@ class Routes extends EventEmitter
      * @param string   $prefix
      * @param Callable $callback
      *
-     * return \CapMousse\ReactRestify\Routing\Group
+     * return \oNeDaL\ReactRestify\Routing\Group
      */
     public function group($prefix, $callback)
     {

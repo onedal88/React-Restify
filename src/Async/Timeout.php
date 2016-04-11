@@ -1,11 +1,11 @@
-<?php 
-namespace CapMousse\ReactRestify\Async;
+<?php
+namespace oNeDaL\ReactRestify\Async;
 
 use GuzzleHttp\Promise\Promise;
 use GuzzleHttp\Promise\PromiseInterface;
-use CapMousse\ReactRestify\Runner;
+use oNeDaL\ReactRestify\Runner;
 
-class Timeout 
+class Timeout
 {
 
 	public function run(callable $callback, $time)

@@ -2,7 +2,7 @@
 
 require '../vendor/autoload.php';
 
-$server = new CapMousse\ReactRestify\Server("SmallTodoServer", "0.0.0.1");
+$server = new oNeDaL\ReactRestify\Server("SmallTodoServer", "0.0.0.1");
 
 $todoList = array(
     array("name" => "Build a todo list example", "value" => "done")
@@ -89,5 +89,5 @@ $server->on('NotFound', function($request, $response, $next){
     $next();
 });
 
-$runner = new CapMousse\ReactRestify\Runner($server);
+$runner = new oNeDaL\ReactRestify\Runner($server);
 $runner->listen("1337");
